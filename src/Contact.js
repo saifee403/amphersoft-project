@@ -1,39 +1,71 @@
-import styled from "styled-components";
+import { useState } from "react";
+import "./Contact.css"
 
 const Contact = () => {
-  const Wrapper = styled.section`
-    padding: 9rem 0 5rem 0;
-    text-align: center;
+  const [formData, setFormData] = useState({
+    email: "",
+    number: "",
+    message: "",
+  });
 
-    .container {
-      margin-top: 6rem;
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
-      .contact-form {
-        max-width: 50rem;
-        margin: auto;
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("Form submitted:", formData);
+    // You can add code here to send the form data to a server
 
-        .contact-inputs {
-          display: flex;
-          flex-direction: column;
-          gap: 3rem;
+    // Reset the form fields
+    setFormData({
+      email: "",
+      number: "",
+      message: "",
+    });
+  };
 
-          input[type="submit"] {
-            cursor: pointer;
-            transition: all 0.2s;
+  return (
+    <>
+    <div className="App">
+      <h2>Contact Us</h2>
+      <form onSubmit={handleSubmit}>
+        <label>Email:</label>
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
 
-            &:hover {
-              background-color: ${({ theme }) => theme.colors.white};
-              border: 1px solid ${({ theme }) => theme.colors.btn};
-              color: ${({ theme }) => theme.colors.btn};
-              transform: scale(0.9);
-            }
-          }
-        }
-      }
-    }
-  `;
+        <label>Phone Number:</label>
+        <input
+          type="tel"
+          name="number"
+          value={formData.number}
+          onChange={handleChange}
+          required
+        />
 
-  return <Wrapper></Wrapper>;
+        <label>Message:</label>
+        <textarea
+          name="message"
+          rows="4"
+          value={formData.message}
+          onChange={handleChange}
+          required
+        ></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+      </div>
+    </>
+  );
 };
 
 export default Contact;

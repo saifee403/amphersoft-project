@@ -1,7 +1,7 @@
 import React from "react";
 import HeroSection from "./component/HeroSection";
 import Services from "./component/Services";
-import Trusted from "./component/Trusted";
+
 
 function Home() {
   const data = {
@@ -11,7 +11,8 @@ function Home() {
     <>
       <HeroSection myData={data} />
       <Services />
-      <Trusted />
+
+      
     </>
   );
 }
