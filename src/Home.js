@@ -1,16 +1,19 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import HeroSection from "./component/HeroSection";
+import Services from "./component/Services";
+import Trusted from "./component/Trusted";
 
 function Home() {
+  const data = {
+    name: "Open Limits",
+  };
   return (
-    <Wrappper className="test">Home</Wrappper>
-  )
-};
+    <>
+      <HeroSection myData={data} />
+      <Services />
+      <Trusted />
+    </>
+  );
+}
 
-const Wrappper = styled.section`
-    background-color: ${({ theme }) => theme.colors.bg};
-    width:20rem;
-    height:20rem;
-`;
-
-export default Home
+export default Home;
