@@ -1,7 +1,6 @@
-import React from 'react'
-import styled from 'styled-components';
-import { useProductContext } from '../context/productContext';
-import Product from './Product';
+import { useProductContext } from "../context/productContext";
+import styled from "styled-components";
+import Product from "./Product";
 
 const FeatureProduct = () => {
   const { isLoading, featureProducts } = useProductContext();
@@ -9,6 +8,7 @@ const FeatureProduct = () => {
   if (isLoading) {
     return <div> ......Loading </div>;
   }
+
   return (
     <Wrapper className="section">
       <div className="container">
@@ -21,8 +21,9 @@ const FeatureProduct = () => {
         </div>
       </div>
     </Wrapper>
-  )
+  );
 };
+
 const Wrapper = styled.section`
   padding: 9rem 0;
   background-color: ${({ theme }) => theme.colors.bg};
@@ -123,4 +124,4 @@ const Wrapper = styled.section`
   }
 `;
 
-export default FeatureProduct
+export default FeatureProduct;
