@@ -1,6 +1,7 @@
 import React from "react";
 import HeroSection from "./component/HeroSection";
 import Services from "./component/Services";
+import FeatureProduct from "./component/FeatureProduct";
 
 
 function Home() {
@@ -10,6 +11,7 @@ function Home() {
   return (
     <>
       <HeroSection myData={data} />
+      <FeatureProduct/>
       <Services />
 
       
