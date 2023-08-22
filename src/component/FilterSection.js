@@ -65,7 +65,7 @@ const FilterSection = () => {
       <div className="filter-company">
         <h3>Company</h3>
 
-        <form action="#">
+        <form >
           <select
             name="company"
             id="company"
