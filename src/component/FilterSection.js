@@ -87,6 +87,20 @@ const FilterSection = () => {
 
         <div className="filter-color-style">
           {colorsData.map((curColor, index) => {
+            if(curColor === "all"){
+              return (
+                <button
+                  key={index}
+                  type="button"
+                  value={curColor}
+                  name="color"
+                  style={{ backgroundColor: curColor }}
+                  className="color-all--style"
+                  onClick={updateFilterValue}>
+                  all
+                </button>
+              );
+            }
             return (
               <button
                 key={index}
@@ -94,9 +108,9 @@ const FilterSection = () => {
                 value={curColor}
                 name="color"
                 style={{ backgroundColor: curColor }}
-                className="btnStyle"
+                className={color === curColor ? "btnStyle active" : "btnStyle"}
                 onClick={updateFilterValue}>
-                {color === curColor ? "" : null}
+                {color === curColor ? <FaCheck className="checkStyle"/> : null}
               </button>
             );
           })}
