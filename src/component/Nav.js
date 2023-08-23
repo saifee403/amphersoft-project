@@ -229,6 +229,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { FiShoppingCart } from "react-icons/fi";
 import { CgMenu, CgClose } from "react-icons/cg";
+import { useCartContext } from "../context/cart_context";
 
 // Define styled components at the module level
 const NavStyled = styled.nav`
@@ -387,7 +388,7 @@ const NavStyled = styled.nav`
 
 const Nav = () => {
   const [menuIcon, setMenuIcon] = useState(false);
-
+  const {total_item} = useCartContext();
   return (
     <NavStyled>
       <div className={menuIcon ? "navbar active" : "navbar"}>
@@ -431,7 +432,7 @@ const Nav = () => {
           <li>
             <NavLink to="/cart" className="navbar-link cart-trolley--link">
               <FiShoppingCart className="cart-trolley" />
-              <span className="cart-total--item"> 0 </span>
+              <span className="cart-total--item"> {total_item} </span>
             </NavLink>
           </li>
         </ul>

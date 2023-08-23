@@ -7,7 +7,7 @@ import { Button } from "./styles/Button";
 const Cart = () => {
   const { cart, clearCart } = useCartContext();
 
-  if(cart.length === 0){
+  if (!cart || cart.length === 0){
     return <EmptyDiv>
         <h3>You'r Cart Is Empty</h3>
     </EmptyDiv>
